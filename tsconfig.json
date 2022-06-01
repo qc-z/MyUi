@@ -14,13 +14,10 @@
     "declarationDir": "dist/types",
     "outDir": "dist",
     "paths": {
-      "my-lib/*": [
-        "./src/packages/*"
-      ],
-      "dist/*": [
-        "./dist/es/*"
-      ]
+      "my-lib/*": ["./src/packages/*"],
+      "dist/*": ["./dist/es/*"]
     },
+    "allowJs": true
   },
   "include": [
     "src/**/*.ts",
@@ -30,7 +27,5 @@
     "docs/.vitepress/**/*.ts",
     "docs/.vitepress/**/*.vue"
   ],
-  "exclude": [
-    "node_modules",
-  ]
+  "exclude": ["node_modules"]
 }

@@ -1,11 +1,7 @@
-<script lang="ts">
-export default {
-  name: 'ButtonDemo',
-  title: '基本',
-}
-</script>
-<script setup lang="ts">
+<script setup>
 import MyButton from 'my-lib/button'
+
+const test = ref(false)
 </script>
 
 <template>

@@ -109,6 +109,7 @@
     "ts-morph": "^11.0.0",
     "typescript": "^4.6.2",
     "unocss": "^0.35.2",
+    "unplugin-auto-import": "^0.8.6",
     "unplugin-icons": "^0.14.2",
     "unplugin-vue": "^0.2.2",
     "unplugin-vue-components": "^0.19.3",
@@ -122,6 +123,8 @@
     "vue-tsc": "^0.0.24"
   },
   "dependencies": {
-    "@unocss/reset": "^0.35.2"
+    "@unocss/reset": "^0.35.2",
+    "ant-design-vue": "^3.2.5",
+    "dayjs": "^1.11.2"
   }
 }

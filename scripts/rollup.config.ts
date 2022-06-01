@@ -1,6 +1,6 @@
 import path from 'path'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
-import postcss from 'rollup-plugin-postcss'
+// import postcss from 'rollup-plugin-postcss'
 import vue from 'unplugin-vue/rollup'
 import alias from '@rollup/plugin-alias'
 import esbuild from 'rollup-plugin-esbuild'
@@ -47,9 +47,9 @@ const getPlugins = () => [
     minify: true,
   }),
   // genCss(),
-  postcss({
-    extract: true,
-  }),
+  // postcss({
+  //   extract: true,
+  // }),
 ]
 
 const configs = []

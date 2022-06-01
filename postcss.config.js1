@@ -8,7 +8,7 @@ const plugins =
       }
     : {
         'postcss-pxtorem': {
-          rootValue: 100,
+          rootValue: 150,
           propWhiteList: [],
           minPixelValue: 2,
         },
