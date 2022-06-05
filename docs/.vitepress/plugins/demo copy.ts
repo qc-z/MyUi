@@ -6,6 +6,7 @@ import { highlight } from '../utils/highlight'
 import type Token from 'markdown-it/lib/token'
 import type Renderer from 'markdown-it/lib/renderer'
 import glob from 'glob'
+import fetchCode from './fetchCode';
 
 const localMd = MarkdownIt()
 const anchor = '&-&'
@@ -45,7 +46,7 @@ export const mdPlugin = async (md: MarkdownIt) => {
         const sourceFile =
           sourceFileToken.children?.[0].content ?? ''
         source = getDemoSource(sourceFile).source
-        console.log(source);
+
         if (!source)
           throw new Error(
             `Incorrect source file: ${sourceFile}`
@@ -75,11 +76,25 @@ function getDemoSource(path: string) {
       ? resolve(docRoot, path)
       : resolve(process.cwd(), path)
 
-  const demoEntries = glob.sync(truePath)
+  let demoEntries = glob.sync(truePath)
+  demoEntries = demoEntries.filter((f: string) => !f.endsWith('index.vue'))
+
   const demoCodeRaws = demoEntries.map((p: string) => {
     return fs.readFileSync(p, 'utf-8')
   })
-
+  const fetchCodeRaws = demoEntries.map((p: string) => {
+    const demoCodeRaw = fs.readFileSync(p, 'utf-8')
+    const docs = fetchCode(demoCodeRaw, 'docs')?.trim();
+    const template = fetchCode(demoCodeRaw, 'template');
+    const script = fetchCode(demoCodeRaw, 'script');
+    const style = fetchCode(demoCodeRaw, 'style');
+    const newContent = `
+  ${template}
+  ${script}
+  ${style}
+  `;
+    return newContent
+  })
   return {
     source: demoCodeRaws,
     truePath,

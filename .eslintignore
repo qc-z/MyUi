@@ -1,6 +1,0 @@
-node_modules/
-**/*.json
-**/*.styl
-**/*.html
-!.vitepress
-!.eslintrc.js

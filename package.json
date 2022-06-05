@@ -1,6 +1,6 @@
 {
   "name": "my-lib",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "dev": "vite --host",
     "serve": "vite preview",
@@ -8,10 +8,11 @@
     "build:lib": "esno ./scripts/esbuild.ts",
     "build": "rimraf dist && esno ./scripts/gen-dts.ts && pnpm build:bundle && pnpm build:lib",
     "build:example": "vue-tsc --noEmit && vite build --base=./",
-    "docs:dev": "vitepress dev docs",
+    "docs:dev": "esno scripts/gen-docs.ts && esno ./scripts/dev-docs.ts",
     "docs:build": "esno scripts/gen-docs.ts && vitepress build docs",
     "docs:serve": "vitepress serve docs",
-    "lint": "eslint --ext .ts,.vue --ignore-path .gitignore .eslintrc.js . --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "gen": "esno ./scripts/gen-component.ts --name",
     "gen-entry": "esno ./scripts/gen-entry.ts",
     "test": "jest --coverage",
@@ -40,6 +41,7 @@
     }
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^0.25.0",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/preset-env": "^7.14.1",
     "@babel/preset-typescript": "^7.13.0",
@@ -77,7 +79,7 @@
     "esbuild": "^0.13.15",
     "esbuild-plugin-vue": "^0.1.2",
     "escape-html": "^1.0.3",
-    "eslint": "^7.24.0",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-vue": "^7.9.0",
@@ -123,6 +125,7 @@
     "vue-tsc": "^0.0.24"
   },
   "dependencies": {
+    "@ant-design/icons-vue": "^6.1.0",
     "@unocss/reset": "^0.35.2",
     "ant-design-vue": "^3.2.5",
     "dayjs": "^1.11.2"

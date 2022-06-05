@@ -223,7 +223,7 @@ export default (): Plugin => {
             return {
               resolveDir: path.dirname(filepath),
               contents: content,
-              loader: 'css',
+              loader: 'css'
             }
           }
         }

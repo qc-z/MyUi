@@ -10,12 +10,13 @@ module.exports = function (
       {
         name: 'name',
         validate: function (name) {
-          if (checkComponentName(name)) {
-            return '组件名称请使用(kebab-case)方式命名'
-          }
+
           if (checkComponentExist(name)) {
             return `组件库中已经存在名为${name}的组件！请仔细核对后重新创建`
           }
+          // if (checkComponentName(name)) {
+          //   return '组件名称请使用(kebab-case)方式命名'
+          // }
           return true
         },
       },

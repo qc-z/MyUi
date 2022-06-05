@@ -1,5 +1,0 @@
-node_modules/*
-# **/*.vue
-logs/*
-.nuxt
-nuxt.config.js

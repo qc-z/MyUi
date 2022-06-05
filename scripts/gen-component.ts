@@ -20,10 +20,11 @@ function generateTemplate() {
   console.log(
     `${chalk.cyanBright.bold('Welcome to My lib!')}`
   )
+  console.log(argv);
   if (argv.name === true) {
     console.log(
       chalk.red('[ERROR] ') +
-        '开发组件命令: yarn gen  [component name]'
+      '开发组件命令: yarn gen  [component name]'
     )
     return
   }

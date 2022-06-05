@@ -2,20 +2,21 @@
 class: 'button-doc'
 sidebarDepth: 2
 ---
+
 # Button 按钮
 
 ## 引入
 
 ```javascript
-import { Button } from 'my-lib'
+import { MyButton } from 'my-lib'
 
-Vue.creatApp().use(Button.name, Button)
+Vue.creatApp().use(MyButton.name, MyButton)
 ```
 
 ## 案例
 
 :::demo  
-src/packages/button/demo/demo0.vue  
+src/packages/MyButton/demo/\*
 :::
 
 ## props

@@ -28,14 +28,22 @@ export function MarkdownTransform(): Plugin {
         headers: [],
         footers: [],
         scriptSetups: [
-          `const demos = import.meta.globEager('../../../src/packages/${componentId}/demo/demo*.vue')`,
+          `const files = import.meta.globEager('../../../src/packages/${componentId}/demo/*.vue')
+          const demos = {}
+          for (const key in files) {
+            if(key.indexOf('index.vue') === -1) {
+              demos[key] = files[key]
+            }
+          }
+          console.log(demos)
+          `
         ],
       }
 
       code += `
 <script setup>
 ${append.scriptSetups}
-</script>   
+</script>
 `
 
       return {
